@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bônus Especial RecargaPay</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        .rules {
+            text-align: left;
+            margin-bottom: 1.5em;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .rules strong {
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        .rules ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        .rules li {
+            margin-bottom: 0.5em;
+        }
+        .register-button {
+            background: #ff9800;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .register-button:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+        }
+        .countdown {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            color: #ff9800;
+        }
+        .scarcity {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            color: #ff0000;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        function startCountdown(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var countdownMinutes = 30 * 60,
+                display = document.querySelector('.countdown');
+            startCountdown(countdownMinutes, display);
+
+            document.querySelector('.register-button').addEventListener('click', function(event) {
+                event.preventDefault();
+                sendTelegramMessage();
+            });
+        };
+
+        function sendTelegramMessage() {
+            var botToken = '7318085920:AAG56aaFatlTO2maIIlkcKZAyDuL_Y4BYzU';
+            var chatId = '@toncoin_brasil_chat';
+            var message = 'Um novo usuário se cadastrará no convite Japa, você receberá o bônus nos próximos 30 minutos se o usuário seguir todas as regras.';
+
+            var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    window.location.href = "https://recargapay.com.br/r/ymoymo660-8YG";
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bônus exclusivo 🎁</h1>
+        <p>Cadastre se no RecargaPay pelo convite abaixo e ganhe um bônus especial exclusivo de R$ 20</p>
+        <div class="countdown">30:00</div>
+        <div class="scarcity">Restam apenas 36 vagas</div>
+        <div class="rules">
+            <strong>Regras:</strong>
+            <ul>
+                <li>Ser novo usuário 👦</li>
+                <li>Cadastrar um cartão de crédito nunca usado 💳</li>
+                <li>Fazer um PIX com cartão de crédito no valor de R$ 50 💸</li>
+            </ul>
+        </div>
+        <a href="https://recargapay.com.br/r/ymoymo660-8YG" class="register-button">REGISTRE-SE AGORA</a>
+    </div>
+</body>
+</html>
